@@ -1,1 +1,1 @@
-# logicallylazy1github.io
+# logicallylazy1.github.io
