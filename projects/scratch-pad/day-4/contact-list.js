@@ -49,7 +49,7 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts = ['Matt']
+    var contacts = []
     
     return {
         // we implemented the length api for you //
@@ -57,13 +57,31 @@ function makeContactList() {
             return contacts.length;
         },
         addContact: function(contact){
-            contacts.push(contact)
+            return contacts.push(contact)
+            
         },
         findContact: function(fullname){
-            return contacts[0].nameFirst;
+            for (var i = 0; i < contacts.length; i++) {
+                if (fullname === contacts[i].nameFirst + ' ' + contacts[i].nameLast){
+                    return contacts[i];
+                }
+            }
         },
         removeContact: function(contact){
-            return contacts.pop(contact);
+            for (var i = 0; i < contacts.length; i++) {
+               if (contacts[i] === contact) {
+                   return contacts.splice(i, 1);}
+            }
+            
+        },
+        printAllContactNames: function(){
+            var allNames = [];
+            for (var i = 0; i < contacts.length; i++) {
+                var fullname = contacts[i].nameFirst + ' ' + contacts[i].nameLast
+                   allNames.push(fullname);
+                }
+            
+            return allNames.join('\n');
         }
         
             
